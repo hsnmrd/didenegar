@@ -1,16 +1,42 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { Vazirmatn } from "next/font/google";
+import localFont from "next/font/local";
 
 import { Header } from "@/app/_components/header";
 import { QueryProvider } from "@/providers/query-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { cn } from "@/ui/lib/utils";
 
-const vazirmatn = Vazirmatn({
-  subsets: ["arabic", "latin"],
-  variable: "--font-vazirmatn",
+const shabnam = localFont({
+  src: [
+    {
+      path: "../fonts/Shabnam-Thin.woff2",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Shabnam-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Shabnam.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Shabnam-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Shabnam-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-shabnam",
   display: "swap",
 });
 
@@ -29,12 +55,12 @@ export default function RootLayout({
       lang="fa"
       dir="rtl"
       suppressHydrationWarning
-      className={cn("h-full", vazirmatn.variable)}
+      className={cn("h-full", shabnam.variable)}
     >
       <body className="bg-background text-foreground flex min-h-full flex-col font-sans antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
