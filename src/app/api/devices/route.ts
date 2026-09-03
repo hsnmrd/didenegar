@@ -1,7 +1,7 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-import { createDeviceSchema, type Device } from "@/app/_schemas/device.schema";
+import { createDeviceSchema, type Device } from "@/schemas/device.schema";
 
 const now = Date.now();
 

@@ -1,11 +1,11 @@
 import { z } from "zod";
 
-import { api } from "@/app/_api/client";
 import {
   type CreateDeviceInput,
   type Device,
   deviceSchema,
-} from "@/app/_schemas/device.schema";
+} from "@/schemas/device.schema";
+import { api } from "@/services/client";
 
 export type DeviceListFilter = {
   q?: string;

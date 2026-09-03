@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Figtree, Geist, Geist_Mono, Raleway } from "next/font/google";
 
-import { QueryProvider } from "@/app/_providers/query-provider";
+import { QueryProvider } from "@/providers/query-provider";
 import { cn } from "@/ui/lib/utils";
 
 const figtreeHeading = Figtree({
