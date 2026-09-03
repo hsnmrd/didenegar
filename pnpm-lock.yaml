@@ -29,6 +29,9 @@ importers:
       lucide-react:
         specifier: ^1.39.0
         version: 1.39.0(react@19.2.8)
+      micro-rq:
+        specifier: ^0.3.0
+        version: 0.3.0(@tanstack/react-query@5.102.8(react@19.2.8))
       next:
         specifier: 16.3.4
         version: 16.3.4(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@20.19.43)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -2415,6 +2418,13 @@ packages:
   merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
+
+  micro-rq@0.3.0:
+    resolution: {integrity: sha512-LlNkYKW22HeQLMIDbQNVLH0DOhtmOo2AvAkMTpKNGMcaQ2NEmcukZV7Bo2nYepf+vZieFkhXYZqXzsfQ7zv+EA==}
+    engines: {node: '>=18'}
+    hasBin: true
+    peerDependencies:
+      '@tanstack/react-query': ^5.0.0
 
   micromatch@4.0.8:
     resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
@@ -5643,6 +5653,10 @@ snapshots:
   merge-stream@2.0.0: {}
 
   merge2@1.4.1: {}
+
+  micro-rq@0.3.0(@tanstack/react-query@5.102.8(react@19.2.8)):
+    dependencies:
+      '@tanstack/react-query': 5.102.8(react@19.2.8)
 
   micromatch@4.0.8:
     dependencies:
