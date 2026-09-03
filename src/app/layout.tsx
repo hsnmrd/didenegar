@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Figtree, Geist, Geist_Mono, Raleway } from "next/font/google";
 
+import { QueryProvider } from "@/app/_providers/query-provider";
 import { cn } from "@/ui/lib/utils";
 
 const figtreeHeading = Figtree({
@@ -41,7 +42,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         figtreeHeading.variable,
       )}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <QueryProvider>{children}</QueryProvider>
+      </body>
     </html>
   );
 }
