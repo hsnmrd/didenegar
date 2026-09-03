@@ -16,6 +16,7 @@ export function Header() {
               src="/logo.jpg"
               alt="لوگوی دیده‌نگار"
               fill
+              sizes="(max-width: 640px) 40px, 48px"
               className="object-contain p-1"
               priority
             />
