@@ -2,6 +2,7 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 import { Header } from "@/app/_components/header";
 import { QueryProvider } from "@/providers/query-provider";
@@ -65,12 +66,14 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <QueryProvider>
-            <div className="relative flex min-h-screen flex-col">
-              <Header />
-              <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-                {children}
-              </main>
-            </div>
+            <NuqsAdapter>
+              <div className="relative flex min-h-screen flex-col">
+                <Header />
+                <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+                  {children}
+                </main>
+              </div>
+            </NuqsAdapter>
           </QueryProvider>
         </ThemeProvider>
       </body>
