@@ -16,7 +16,7 @@ import {
 
 const features = tableFeatures({});
 
-type DataTableFeatures = typeof features;
+export type DataTableFeatures = typeof features;
 
 interface DataTableProps<TData extends RowData> {
   columns: ColumnDef<DataTableFeatures, TData>[];
