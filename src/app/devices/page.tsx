@@ -46,7 +46,11 @@ function DevicesContent() {
 
   const deleteMutation = useMutation({
     ...devicesResource.delete.toMutation(),
-    onSuccess: () => {
+    onSuccess: (_, deletedId) => {
+      queryClient.setQueriesData<Device[]>(
+        { queryKey: devicesResource.list.baseKey() },
+        (old) => (old ? old.filter((d) => d.id !== deletedId) : []),
+      );
       queryClient.invalidateQueries({
         queryKey: devicesResource.list.baseKey(),
       });
