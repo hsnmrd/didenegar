@@ -7,6 +7,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Header } from "@/app/_components/header";
 import { QueryProvider } from "@/providers/query-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
+import { Toaster } from "@/ui/components/toast";
 import { cn } from "@/ui/lib/utils";
 
 const shabnam = localFont({
@@ -73,6 +74,7 @@ export default function RootLayout({
                   {children}
                 </main>
               </div>
+              <Toaster />
             </NuqsAdapter>
           </QueryProvider>
         </ThemeProvider>
