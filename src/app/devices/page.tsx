@@ -30,13 +30,19 @@ function DevicesContent() {
     filterVariables,
   } = useDeviceFilters();
 
+  const hasFilter = Boolean(filterVariables.q || filterVariables.status);
+
   const { data: allDevices, isLoading: isStatsLoading } = useQuery(
     devicesResource.list.toQuery(),
   );
 
-  const { data: devices, isLoading: isListLoading } = useQuery(
-    devicesResource.list.toQuery(filterVariables),
-  );
+  const { data: filteredDevices, isLoading: isFilteredLoading } = useQuery({
+    ...devicesResource.list.toQuery(filterVariables),
+    enabled: hasFilter,
+  });
+
+  const devices = hasFilter ? filteredDevices : allDevices;
+  const isListLoading = hasFilter ? isFilteredLoading : isStatsLoading;
 
   const deleteMutation = useMutation({
     ...devicesResource.delete.toMutation(),
