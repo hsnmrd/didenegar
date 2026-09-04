@@ -1,11 +1,8 @@
 "use client";
 
 import { type ColumnDef, type RowData, useTable } from "@tanstack/react-table";
+import { tableFeatures } from "@tanstack/react-table";
 
-import {
-  type DataTableFeatures,
-  features,
-} from "@/app/devices/_components/list/data-table-features";
 import { Card } from "@/ui/components/card";
 import { Skeleton } from "@/ui/components/skeleton";
 import {
@@ -16,6 +13,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/ui/components/table";
+
+const features = tableFeatures({});
+
+type DataTableFeatures = typeof features;
 
 interface DataTableProps<TData extends RowData> {
   columns: ColumnDef<DataTableFeatures, TData>[];
