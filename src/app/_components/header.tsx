@@ -9,7 +9,6 @@ export function Header() {
   return (
     <header className="border-border bg-background/80 sticky top-0 z-40 w-full border-b backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
-        {/* Brand & Title */}
         <div className="flex items-center gap-3">
           <div className="border-border relative flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border bg-white shadow-sm sm:size-12">
             <Image
@@ -26,7 +25,6 @@ export function Header() {
           </h1>
         </div>
 
-        {/* Actions & User */}
         <div className="flex items-center gap-2 sm:gap-3">
           <Avatar size="lg" className="size-6">
             <AvatarFallback className="bg-primary/20 text-primary text-xs font-bold">

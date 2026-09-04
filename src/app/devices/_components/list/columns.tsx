@@ -1,11 +1,11 @@
 import { type ColumnDef, createColumnHelper } from "@tanstack/react-table";
 import { Trash2 } from "lucide-react";
 
-import { type DataTableFeatures } from "@/app/devices/_components/data-table-features";
-import { DeviceStatusBadge } from "@/app/devices/_components/device-status-badge";
-import { formatRelativeTime } from "@/app/devices/_lib/format-relative-time";
+import { type DataTableFeatures } from "@/app/devices/_components/list/data-table-features";
+import { DeviceStatusBadge } from "@/app/devices/_components/list/device-status-badge";
 import type { Device } from "@/schemas/device.schema";
 import { Button } from "@/ui/components/button";
+import { formatRelativeTime } from "@/utils/format-relative-time";
 
 const columnHelper = createColumnHelper<DataTableFeatures, Device>();
 

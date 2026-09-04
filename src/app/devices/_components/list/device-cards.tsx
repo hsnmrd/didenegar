@@ -1,7 +1,6 @@
 import { Clock, MoreVertical, Trash2 } from "lucide-react";
 
-import { DeviceStatusBadge } from "@/app/devices/_components/device-status-badge";
-import { formatRelativeTime } from "@/app/devices/_lib/format-relative-time";
+import { DeviceStatusBadge } from "@/app/devices/_components/list/device-status-badge";
 import type { Device } from "@/schemas/device.schema";
 import { Button } from "@/ui/components/button";
 import { Card } from "@/ui/components/card";
@@ -12,6 +11,7 @@ import {
   PopoverTrigger,
 } from "@/ui/components/popover";
 import { Skeleton } from "@/ui/components/skeleton";
+import { formatRelativeTime } from "@/utils/format-relative-time";
 
 type DeviceCardsProps = {
   devices?: Device[];

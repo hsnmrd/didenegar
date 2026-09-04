@@ -3,11 +3,11 @@
 import {
   DeviceToolbarDesktop,
   type DeviceToolbarDesktopProps,
-} from "@/app/devices/_components/device-toolbar-desktop";
+} from "@/app/devices/_components/toolbar/device-toolbar-desktop";
 import {
   DeviceToolbarMobile,
   type DeviceToolbarMobileProps,
-} from "@/app/devices/_components/device-toolbar-mobile";
+} from "@/app/devices/_components/toolbar/device-toolbar-mobile";
 import { useIsMobile } from "@/ui/hooks/use-mobile";
 
 export type DeviceToolbarProps = DeviceToolbarDesktopProps &

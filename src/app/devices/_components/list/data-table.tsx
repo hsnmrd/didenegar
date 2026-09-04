@@ -5,7 +5,7 @@ import { type ColumnDef, type RowData, useTable } from "@tanstack/react-table";
 import {
   type DataTableFeatures,
   features,
-} from "@/app/devices/_components/data-table-features";
+} from "@/app/devices/_components/list/data-table-features";
 import { Card } from "@/ui/components/card";
 import { Skeleton } from "@/ui/components/skeleton";
 import {

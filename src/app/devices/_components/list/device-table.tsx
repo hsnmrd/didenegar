@@ -2,8 +2,8 @@
 
 import { useMemo } from "react";
 
-import { getDeviceColumns } from "@/app/devices/_components/columns";
-import { DataTable } from "@/app/devices/_components/data-table";
+import { getDeviceColumns } from "@/app/devices/_components/list/columns";
+import { DataTable } from "@/app/devices/_components/list/data-table";
 import type { Device } from "@/schemas/device.schema";
 
 type DeviceTableProps = {

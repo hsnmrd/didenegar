@@ -2,8 +2,8 @@
 
 import { ServerOff } from "lucide-react";
 
-import { DeviceCards } from "@/app/devices/_components/device-cards";
-import { DeviceTable } from "@/app/devices/_components/device-table";
+import { DeviceCards } from "@/app/devices/_components/list/device-cards";
+import { DeviceTable } from "@/app/devices/_components/list/device-table";
 import type { Device } from "@/schemas/device.schema";
 import { Card } from "@/ui/components/card";
 import {

@@ -3,11 +3,11 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Suspense, useMemo, useState } from "react";
 
-import { DeleteDeviceDialog } from "@/app/devices/_components/delete-device-dialog";
-import { DeviceList } from "@/app/devices/_components/device-list";
-import { DeviceToolbar } from "@/app/devices/_components/device-toolbar";
-import { MobileAddDeviceButton } from "@/app/devices/_components/mobile-add-device-button";
-import { StatCards } from "@/app/devices/_components/stat-cards";
+import { DeleteDeviceDialog } from "@/app/devices/_components/dialogs/delete-device-dialog";
+import { DeviceList } from "@/app/devices/_components/list/device-list";
+import { StatCards } from "@/app/devices/_components/stats/stat-cards";
+import { DeviceToolbar } from "@/app/devices/_components/toolbar/device-toolbar";
+import { MobileAddDeviceButton } from "@/app/devices/_components/toolbar/mobile-add-device-button";
 import { useDeviceFilters } from "@/app/devices/_hooks/use-device-filter";
 import type { Device } from "@/schemas/device.schema";
 import { devicesResource } from "@/services/devices.resource";
