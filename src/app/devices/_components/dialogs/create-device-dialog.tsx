@@ -10,6 +10,7 @@ import { DEVICE_FORM_STATUS_OPTIONS } from "@/mock/status";
 import {
   type CreateDeviceInput,
   createDeviceSchema,
+  type Device,
   type DeviceStatus,
 } from "@/schemas/device.schema";
 import { devicesResource } from "@/services/devices.resource";
@@ -66,7 +67,15 @@ export function CreateDeviceDialog({
 
   const createMutation = useMutation({
     ...devicesResource.create.toMutation(),
-    onSuccess: () => {
+    onSuccess: (newDevice) => {
+      queryClient.setQueriesData<Device[]>(
+        { queryKey: devicesResource.list.baseKey() },
+        (old) => {
+          if (!old) return [newDevice];
+          if (old.some((d) => d.id === newDevice.id)) return old;
+          return [newDevice, ...old];
+        },
+      );
       queryClient.invalidateQueries({
         queryKey: devicesResource.list.baseKey(),
       });
