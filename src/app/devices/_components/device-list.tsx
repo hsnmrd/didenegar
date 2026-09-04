@@ -47,7 +47,13 @@ export function DeviceList({
   }
 
   if (isMobile) {
-    return <DeviceCards devices={devices} isLoading={isLoading} />;
+    return (
+      <DeviceCards
+        devices={devices}
+        isLoading={isLoading}
+        onDelete={onDelete}
+      />
+    );
   }
 
   return (

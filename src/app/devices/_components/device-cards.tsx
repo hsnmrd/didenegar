@@ -1,18 +1,29 @@
-import { Clock, MoreVertical } from "lucide-react";
+import { Clock, MoreVertical, Trash2 } from "lucide-react";
 
 import { DeviceStatusBadge } from "@/app/devices/_components/device-status-badge";
 import { formatRelativeTime } from "@/app/devices/_lib/format-relative-time";
 import type { Device } from "@/schemas/device.schema";
 import { Button } from "@/ui/components/button";
 import { Card } from "@/ui/components/card";
+import {
+  Popover,
+  PopoverClose,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/ui/components/popover";
 import { Skeleton } from "@/ui/components/skeleton";
 
 type DeviceCardsProps = {
   devices?: Device[];
   isLoading?: boolean;
+  onDelete?: (device: Device) => void;
 };
 
-export function DeviceCards({ devices, isLoading = false }: DeviceCardsProps) {
+export function DeviceCards({
+  devices,
+  isLoading = false,
+  onDelete,
+}: DeviceCardsProps) {
   if (isLoading) {
     return (
       <div className="flex flex-col gap-3">
@@ -61,15 +72,42 @@ export function DeviceCards({ devices, isLoading = false }: DeviceCardsProps) {
               </span>
             </div>
 
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              className="text-muted-foreground size-8 rounded-lg"
-              aria-label="گزینه‌ها"
-            >
-              <MoreVertical className="size-4" />
-            </Button>
+            <Popover>
+              <PopoverTrigger
+                render={
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="text-muted-foreground size-8 rounded-lg"
+                    aria-label="گزینه‌ها"
+                  >
+                    <MoreVertical className="size-4" />
+                  </Button>
+                }
+              />
+              <PopoverContent
+                align="start"
+                side="bottom"
+                sideOffset={4}
+                className="border-border/70 bg-popover w-36 rounded-xl p-1 shadow-md"
+              >
+                <PopoverClose
+                  render={
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => onDelete?.(device)}
+                      className="text-destructive hover:bg-destructive/10 hover:text-destructive h-8 w-full justify-start gap-2 rounded-lg px-2 text-xs font-medium"
+                    >
+                      <Trash2 className="size-3.5" />
+                      <span>حذف دستگاه</span>
+                    </Button>
+                  }
+                />
+              </PopoverContent>
+            </Popover>
           </div>
 
           <div className="text-muted-foreground flex items-center gap-1.5 text-xs">
