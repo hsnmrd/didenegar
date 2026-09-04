@@ -50,6 +50,8 @@ const eslintConfig = defineConfig([
 
       // Tailwind custom classnames (turn off false positives for arbitrary/custom styles)
       "tailwindcss/no-custom-classname": "off",
+      // Let prettier-plugin-tailwindcss handle class sorting to avoid conflicts
+      "tailwindcss/classnames-order": "off",
     },
   },
   // Disable formatting rules conflicting with Prettier (must come last)
