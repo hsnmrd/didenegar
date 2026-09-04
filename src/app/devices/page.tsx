@@ -3,6 +3,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Suspense, useMemo, useState } from "react";
 
+import { CreateDeviceDialog } from "@/app/devices/_components/dialogs/create-device-dialog";
 import { DeleteDeviceDialog } from "@/app/devices/_components/dialogs/delete-device-dialog";
 import { DeviceList } from "@/app/devices/_components/list/device-list";
 import { StatCards } from "@/app/devices/_components/stats/stat-cards";
@@ -12,12 +13,14 @@ import { useDeviceFilters } from "@/app/devices/_hooks/use-device-filter";
 import type { Device } from "@/schemas/device.schema";
 import { devicesResource } from "@/services/devices.resource";
 import { Skeleton } from "@/ui/components/skeleton";
+import { toast } from "@/ui/components/toast";
 import { useIsMobile } from "@/ui/hooks/use-mobile";
 
 function DevicesContent() {
   const isMobile = useIsMobile();
   const queryClient = useQueryClient();
   const [deviceToDelete, setDeviceToDelete] = useState<Device | null>(null);
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
 
   const {
     searchQuery,
@@ -40,6 +43,10 @@ function DevicesContent() {
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: devicesResource.list.baseKey(),
+      });
+      toast.add({
+        description: "دستگاه با موفقیت حذف شد",
+        type: "success",
       });
       setDeviceToDelete(null);
     },
@@ -68,13 +75,20 @@ function DevicesContent() {
         onSearchChange={setSearchQuery}
         selectedStatus={selectedStatus}
         onStatusChange={setSelectedStatus}
+        onAddDevice={() => setIsCreateOpen(true)}
       />
       <DeviceList
         devices={devices}
         isLoading={isListLoading}
         onDelete={setDeviceToDelete}
       />
-      {isMobile && <MobileAddDeviceButton />}
+      {isMobile && (
+        <MobileAddDeviceButton onClick={() => setIsCreateOpen(true)} />
+      )}
+      <CreateDeviceDialog
+        isOpen={isCreateOpen}
+        onClose={() => setIsCreateOpen(false)}
+      />
       <DeleteDeviceDialog
         device={deviceToDelete}
         isOpen={Boolean(deviceToDelete)}
