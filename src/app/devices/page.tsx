@@ -3,6 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 
+import { DeviceList } from "@/app/devices/_components/device-list";
 import { StatCards } from "@/app/devices/_components/stat-cards";
 import { devicesResource } from "@/services/devices.resource";
 
@@ -22,6 +23,7 @@ export default function DevicesPage() {
   return (
     <div className="flex flex-col gap-6 sm:gap-8">
       <StatCards stats={stats} isLoading={isLoading} />
+      <DeviceList devices={devices} isLoading={isLoading} />
     </div>
   );
 }
